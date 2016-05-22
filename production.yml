@@ -1,8 +1,8 @@
 ---
 
 - hosts: production
-  remote_user: ubuntu
-  sudo: yes
+  remote_user: hatbarcelona
+  become: yes
   vars_files:
     - vars.yml
   vars:
@@ -16,12 +16,12 @@
   roles:
     - common
     - frontend
-    - role: letsencrypt
-      letsencrypt_webroot_path: /home/{{ user }}/shared/public/{{ user }}.website.static
-      letsencrypt_email: 'info@{{ domain }}'
-      letsencrypt_cert_domains:
-        - 'www.{{ domain }}'
-        - 'next.{{ domain }}'
-        - '{{ domain }}'
-
-      letsencrypt_renewal_command_args: '--renew-hook "systemctl restart nginx"'
+  #    - role: letsencrypt
+  #      letsencrypt_webroot_path: /home/{{ user }}/shared/public/{{ user }}.website.static
+  #      letsencrypt_email: 'info@{{ domain }}'
+  #      letsencrypt_cert_domains:
+  #        - 'www.{{ domain }}'
+  #        - 'next.{{ domain }}'
+  #        - '{{ domain }}'
+  #
+  #      letsencrypt_renewal_command_args: '--renew-hook "systemctl restart nginx"'

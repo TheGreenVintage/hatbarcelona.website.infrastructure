@@ -29,7 +29,7 @@ server {
   add_header X-Frame-Options SAMEORIGIN;
   add_header X-Content-Type-Options nosniff;
   add_header X-XSS-Protection "1; mode=block";
-  add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google-analytics.com http://cdnjs.cloudflare.com; img-src 'self' http://www.google-analytics.com http://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' http://fonts.googleapis.com http://cdnjs.cloudflare.com; font-src 'self' http://fonts.googleapis.com http://fonts.gstatic.com; frame-src 'none'; object-src 'none'";
+  add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com maps.googleapis.com; img-src 'self' www.google-analytics.com maps.googleapis.com maps.gstatic.com csi.gstatic.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.googleapis.com fonts.gstatic.com; child-src 'none'; object-src 'none'";
 
   {% if certificates.stat.exists %}
   # global HTTP handler
@@ -63,5 +63,10 @@ server {
     expires 7d;
     access_log off;
     add_header Cache-Control "public";
+  }
+
+  # Fonts
+  location ~* \.(eot|otf|ttf|woff|woff2)$ {
+    add_header Access-Control-Allow-Origin *;
   }
 }
