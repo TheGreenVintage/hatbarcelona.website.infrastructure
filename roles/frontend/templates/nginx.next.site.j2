@@ -69,6 +69,7 @@ server {
 
   # No robots
   location /robots.txt {
-    alias /norobots.txt;
+    add_header Content-Type text/plain;
+    return 200 "User-agent: *\nDisallow: /\n";
   }
 }
