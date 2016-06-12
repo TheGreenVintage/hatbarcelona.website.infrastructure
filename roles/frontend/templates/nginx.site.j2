@@ -43,7 +43,7 @@ server {
   }
   {% endif %}
 
-  try_files $uri/index.html $uri.html $uri;
+  try_files $uri $uri/ =404;
 
   # Initial i18n redirect
   location = / {
