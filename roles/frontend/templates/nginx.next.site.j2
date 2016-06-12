@@ -30,7 +30,7 @@ server {
   add_header X-Frame-Options SAMEORIGIN;
   add_header X-Content-Type-Options nosniff;
   add_header X-XSS-Protection "1; mode=block";
-  add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com maps.googleapis.com; img-src 'self' www.google-analytics.com maps.googleapis.com maps.gstatic.com csi.gstatic.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.googleapis.com fonts.gstatic.com; child-src 'none'; object-src 'none'";
+  add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com maps.googleapis.com cdnjs.cloudflare.com; img-src 'self' www.google-analytics.com maps.googleapis.com maps.gstatic.com csi.gstatic.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com; font-src 'self' fonts.googleapis.com fonts.gstatic.com; frame-src: www.youtube.com; child-src www.youtube.com; object-src 'none'";
 
   {% if certificates.stat.exists %}
 
