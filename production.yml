@@ -5,9 +5,11 @@
   become: yes
   vars_files:
     - vars.yml
+    - secrets.yml
   vars:
     domain: hatbarcelona.com
     certificates_folder: /etc/letsencrypt/live
+    node_env: production
   vars_prompt:
     - name: "create_certificates"
       prompt: "Create SSL Certificates (yes, no)"
@@ -16,6 +18,7 @@
   roles:
     - common
     - frontend
+    - backend
     - role: vendor/ansible-letsencrypt
       letsencrypt_webroot_path: '/home/{{ user }}/shared/public/{{ user }}.website.static'
       letsencrypt_email: 'info@{{ domain }}'
