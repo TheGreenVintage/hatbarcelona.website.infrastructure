@@ -5,6 +5,7 @@
   sudo: yes
   vars_files:
     - vars.yml
+    - secrets.yml
   vars:
     domain: local.hatbarcelona.com
     certificates_folder: /home/{{ user }}/shared/certificates
@@ -16,3 +17,4 @@
   roles:
     - common
     - frontend
+    - backend

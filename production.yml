@@ -5,6 +5,7 @@
   become: yes
   vars_files:
     - vars.yml
+    - secrets.yml
   vars:
     domain: hatbarcelona.com
     certificates_folder: /etc/letsencrypt/live
@@ -16,6 +17,7 @@
   roles:
     - common
     - frontend
+    - backend
     - role: vendor/ansible-letsencrypt
       letsencrypt_webroot_path: '/home/{{ user }}/shared/public/{{ user }}.website.static'
       letsencrypt_email: 'info@{{ domain }}'
