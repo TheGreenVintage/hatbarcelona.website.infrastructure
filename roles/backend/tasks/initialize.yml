@@ -35,7 +35,7 @@
 
   - name: starting backend service
     become_user: '{{ user }}'
-    command: pm2 startOrRestart ./bin/www --name {{ user }}.backend
+    command: pm2 start ./bin/www --name {{ user }}.backend
     args:
       chdir: /home/{{ user }}/shared/public/{{ user }}.website.dynamic
     environment:
@@ -43,7 +43,7 @@
 
   - name: starting next backend service
     become_user: '{{ user }}'
-    command: pm2 startOrRestart ./bin/www --name next.{{ user }}.backend
+    command: pm2 start ./bin/www --name next.{{ user }}.backend
     args:
       chdir: /home/{{ user }}/shared/public/next.{{ user }}.website.dynamic
     environment:
