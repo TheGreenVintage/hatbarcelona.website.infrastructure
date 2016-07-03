@@ -1,7 +1,3 @@
-[submodule "vendor/ansible-letsencrypt"]
-	path = vendor/ansible-letsencrypt
-	url = git@github.com:thefinn93/ansible-letsencrypt.git
-	branch = e218eba706599e221b9980ab8421c91938c543d3
 [submodule "vendor/nginx-http-accept-lang"]
 	path = vendor/nginx-http-accept-lang
 	url = git@github.com:fghibellini/nginx-http-accept-lang.git
