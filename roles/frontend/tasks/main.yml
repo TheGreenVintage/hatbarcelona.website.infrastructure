@@ -3,5 +3,6 @@
   - include: certificates.yml
   - include: letsencrypt.yml
   - include: repository.yml
+  - include: initialize.yml
   - include: nginx.yml
   - include: ruby.yml
