@@ -1,5 +1,5 @@
 [development]
-app ansible_ssh_host=10.0.3.113 ansible_ssh_user=ubuntu
+app ansible_ssh_host=10.0.3.90 ansible_ssh_user=ubuntu
 
 [production]
 hatbarcelona.com ansible_ssh_user=hatbarcelona
