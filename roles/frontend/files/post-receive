@@ -18,6 +18,7 @@ else
 fi
 
 
+rm -rf $TMP_GIT_CLONE
 git clone -b $GIT_BRANCH $GIT_REPO $TMP_GIT_CLONE
 cd $TMP_GIT_CLONE
 bundle install --path $HOME/.gem
