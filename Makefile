@@ -41,16 +41,14 @@ setup:
 	ssh-keygen -f ~/.ssh/known_hosts -R local.$(container).com
 	ssh-copy-id -i ~/.ssh/id_rsa.pub $(container)@local.$(container).com
 
-genesis:
+provision:
 	@read -p "Enter IP address: " IP; \
-	ssh root@$$IP -- apt -qq -y install python2.7; \
-	ssh root@$$IP -- adduser $(container); \
-	ssh root@$$IP -- usermod -aG sudo $(container)
+	ansible-playbook provision.yml -i hosts -e ansible_host=$$IP -e 'ansible_user=root'
 
 dev:
-	ansible-playbook development.yml -i hosts --ask-sudo-pass -e 'ansible_python_interpreter=/usr/bin/python2.7' --ask-vault-pass
+	ansible-playbook development.yml -i hosts --ask-sudo-pass -e ansible_user=$(container) -e 'ansible_python_interpreter=/usr/bin/python2.7' --ask-vault-pass
 
 pro:
-	ansible-playbook production.yml -i hosts --ask-sudo-pass -e 'ansible_python_interpreter=/usr/bin/python2.7'  --ask-vault-pass
+	ansible-playbook production.yml -i hosts --ask-sudo-pass -e ansible_user=$(container) -e 'ansible_python_interpreter=/usr/bin/python2.7'  --ask-vault-pass
 
 i_feel_lucky: submodules setup dev

@@ -43,6 +43,6 @@
   - name: starting backend services
     become_user: '{{ user }}'
     notify: nginx reload
-    command: pm2 startOrReload {{ user }}.config.js --update-env
+    command: pm2 startOrReload {{ user }}.config.js
     args:
       chdir: /home/{{ user }}/shared/config

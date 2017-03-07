@@ -1,5 +1,5 @@
 [development]
-app ansible_ssh_host=local.hatbarcelona.com ansible_ssh_user=hatbarcelona
+app ansible_ssh_host=local.hatbarcelona.com
 
 [production]
-hatbarcelona.com ansible_ssh_user=hatbarcelona
+46.101.2.173 # hatbarcelona.com

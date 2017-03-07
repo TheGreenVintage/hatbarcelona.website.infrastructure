@@ -1,13 +1,12 @@
 ---
 
 - hosts: production
-  remote_user: hatbarcelona
   become: yes
   vars_files:
     - vars.yml
     - secrets.yml
   vars:
-    domain: hatbarcelona.com
+    domain: '{{ top_domain }}'
     certificates_folder: /etc/letsencrypt/live
     node_env: production
   vars_prompt:
