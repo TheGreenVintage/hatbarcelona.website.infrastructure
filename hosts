@@ -2,4 +2,4 @@
 app ansible_ssh_host=local.hatbarcelona.com
 
 [production]
-46.101.2.173 # hatbarcelona.com
+hatbarcelona.com
