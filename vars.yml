@@ -5,4 +5,4 @@ top_domain: '{{ user }}.com'
 description: HAT Barcelona
 github_user_name: TheGreenVintage
 webmaster_email: fcsonline@gmail.com
-info_email: info@hatbarcelona.com
+info_email: 'info@{{ top_domain }}'
