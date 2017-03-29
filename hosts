@@ -1,5 +1,5 @@
 [development]
-app ansible_ssh_host=local.hatbarcelona.com
+development ansible_ssh_host=local.hatbarcelona.com
 
 [production]
-hatbarcelona.com
+production ansible_ssh_host=hatbarcelona.com
